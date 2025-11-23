@@ -1,0 +1,26 @@
+{
+  "buildCommand": "cd backend && npm install",
+  "startCommand": "cd backend && npm start",
+  "functions": {
+    "backend/server.js": {
+      "maxDuration": 60
+    }
+  },
+  "env": {
+    "SESSION_SECRET": "@session_secret",
+    "DISCORD_CLIENT_ID": "@discord_client_id",
+    "DISCORD_CLIENT_SECRET": "@discord_client_secret",
+    "DISCORD_CALLBACK_URL": "@discord_callback_url",
+    "GITHUB_TOKEN": "@github_token",
+    "GITHUB_OWNER": "@github_owner",
+    "GITHUB_REPO": "@github_repo",
+    "GITHUB_FILE_PATH": "@github_file_path",
+    "NODE_ENV": "production"
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/backend/server.js"
+    }
+  ]
+}
