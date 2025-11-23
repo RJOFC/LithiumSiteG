@@ -1,0 +1,9 @@
+
+> lithium-backend@1.0.0 start
+> node server.js
+
+🚀 Servidor Lithium rodando em http://localhost:3000
+📁 Banco de dados: /workspaces/LithiumSite-/backend/downloads.sqlite
+🔍 /api/logged-user chamado. isAuth: false user: undefined
+🔍 /api/logged-user chamado. isAuth: false user: undefined
+🔍 /api/logged-user chamado. isAuth: false user: undefined

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lithium - Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="./Favicon.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="admin">
+  <main class="page admin-page">
+    <header class="site-header">
+      <img src="./Favicon.png" alt="Lithium logo" class="site-logo" />
+      <span class="site-name">Lithium Admin</span>
+      <div style="margin-left: auto; display: flex; gap: 8px; align-items: center;">
+        <button id="sync-github" class="btn small" style="display: none;">📤 Sync</button>
+        <button id="login-btn" class="btn small primary">🔓 Login</button>
+        <button id="logout-btn" class="btn small danger" style="display: none;">🔒 Sair</button>
+      </div>
+    </header>
+
+    <div id="login-prompt" class="card" style="text-align: center; color: var(--text-muted);">
+      Faça login com Discord para gerenciar downloads.
+      <br><br>
+      <button id="discord-login" class="btn primary">Entrar com Discord</button>
+    </div>
+
+    <form id="upload-form" class="card form-card" style="display: none;">
+      <div class="field">
+        <label for="title">Nome</label>
+        <input id="title" name="title" type="text" required />
+      </div>
+
+      <div class="field">
+        <label for="description">Descrição</label>
+        <textarea id="description" name="description" rows="2"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="image">Imagem (opcional)</label>
+        <input id="image" name="image" type="file" accept="image/*" />
+      </div>
+
+      <fieldset class="field">
+        <legend>Tipo de download</legend>
+        <div class="radio-row">
+          <label>
+            <input type="radio" name="downloadType" value="file" checked />
+            Arquivo
+          </label>
+          <label>
+            <input type="radio" name="downloadType" value="link" />
+            Link externo
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="field" data-download-file>
+        <label for="file">Arquivo para download</label>
+        <input id="file" name="file" type="file" />
+      </div>
+
+      <div class="field hidden" data-download-link>
+        <label for="externalLink">URL do download</label>
+        <input id="externalLink" name="externalLink" type="url" placeholder="https://..." />
+      </div>
+
+      <button type="submit" class="btn primary">Salvar download</button>
+    </form>
+
+    <section class="admin-list card" style="display: none;">
+      <header class="admin-list-header">
+        <h2>Itens cadastrados</h2>
+        <button id="clear-all" class="btn danger small">🗑️ Apagar</button>
+      </header>
+      <div id="admin-downloads-list" class="downloads-list compact"></div>
+    </section>
+  </main>
+
+  <script type="module" src="js/app-admin.js"></script>
+</body>
+</html>
